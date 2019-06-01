@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 #create an array
-arr=()
+
 read -p "enter number: " num
 for i in $num; do
-	re='^[0-9]+$'
-	if ! [[ $i =~ $re ]] ; then
-   		echo "error: $i is not a number" >&2; exit 1
+	if ! [[ $i =~ '^[0-9]+$' ]] ; then
+   		echo "error: $i is not a number" ; exit 1
 	fi
 	while [[ $i -lt 0 ]]; do
-		echo "error: $i is a negative number" >&2; exit 1
-		exit 1
+		echo "error: $i is a negative number" ; exit 1
 	done
 	if [[ $i -gt 0 ]]; then
 		arr+=($i)
